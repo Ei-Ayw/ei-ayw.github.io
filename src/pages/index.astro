@@ -1,228 +1,162 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { LINKS } from "../lib/constants";
-import { Icon } from "astro-icon/components";
-import TimeZone from "../components/TimeZoneCard.astro";
 ---
 
-<script>
-  const loader = document.querySelector(".loader") as HTMLElement;
-  if (loader) {
-    loader.style.opacity = "0";
-    loader.style.pointerEvents = "none";
-  }
-</script>
-
-<style>
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .fade-in {
-    animation: fadeInUp 0.5s ease-out both;
-  }
-  .fade-in:nth-child(1) { animation-delay: 0.05s; }
-  .fade-in:nth-child(2) { animation-delay: 0.1s; }
-  .fade-in:nth-child(3) { animation-delay: 0.15s; }
-  .fade-in:nth-child(4) { animation-delay: 0.2s; }
-  .fade-in:nth-child(5) { animation-delay: 0.25s; }
-  .fade-in:nth-child(6) { animation-delay: 0.3s; }
-  .fade-in:nth-child(7) { animation-delay: 0.35s; }
-  .fade-in:nth-child(8) { animation-delay: 0.4s; }
-  .fade-in:nth-child(9) { animation-delay: 0.45s; }
-</style>
-
 <Layout
-  description="Full-Stack Engineer & AI Researcher. Building robust systems and exploring AI/ML frontiers with Rust, Java, Python, React, Docker, and PyTorch."
+  description="Full-Stack Engineer & AI Researcher. Building high-performance systems with Rust, Java, Python, React, and PyTorch."
   title="Ei-Ayw — Full-Stack Engineer & AI Researcher"
 >
-  <main class="max-w-2xl mx-auto px-6 py-16 md:py-24">
+  <main class="mx-auto max-w-3xl px-6 py-20">
 
-    <!-- Hero -->
-    <section class="fade-in mb-16">
-      <div class="flex items-center gap-5 mb-6">
-        <img
-          alt="Ei-Ayw"
-          class="w-18 h-18 rounded-full border border-gray-200 shadow-sm object-cover"
-          src="/avatar.jpg"
-        />
-        <div>
-          <h1 class="text-4xl font-bold tracking-tight m-0">Ei-Ayw</h1>
-          <p class="text-gray-500 text-base m-0 mt-1">Full-Stack Engineer & AI Researcher</p>
-        </div>
-      </div>
-      <p class="text-gray-400 italic text-sm mb-6">"Bridging the gap between low-level system performance and front-end user experience."</p>
-      <div class="flex gap-3">
-        <a
-          class="inline-flex items-center gap-1.5 text-sm text-gray-600 hover:text-slate-900 transition-colors"
-          href={LINKS.github}
-          target="_blank"
-        >
-          <Icon class="w-4 h-4" name="ri:github-fill" />
-          GitHub
-        </a>
-        <span class="text-gray-300">|</span>
-        <a
-          class="inline-flex items-center gap-1.5 text-sm text-gray-600 hover:text-slate-900 transition-colors"
-          href={LINKS.csdn}
-          target="_blank"
-        >
-          <Icon class="w-4 h-4" name="ri:article-fill" />
-          CSDN
-        </a>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section class="fade-in mb-16">
-      <h2 class="text-sm font-medium text-gray-400 uppercase tracking-widest mb-4">About</h2>
-      <p class="text-base text-gray-700 leading-relaxed">
-        I'm a full-stack engineer and AI researcher based in China. I build robust systems
-        across the entire stack — from backend services and infrastructure to frontend interfaces
-        and deep learning pipelines. Passionate about turning research insights into production-grade
-        software that scales.
+    <!-- Header -->
+    <header class="mb-20">
+      <img
+        alt="Ei-Ayw"
+        class="w-16 h-16 rounded-full border border-gray-200 mb-6 object-cover"
+        src="/avatar.jpg"
+      />
+      <h1 class="text-3xl font-bold tracking-tight text-slate-900">Ei-Ayw</h1>
+      <p class="mt-2 text-lg text-gray-500">Full-Stack Engineer & AI Researcher.</p>
+      <p class="mt-3 text-base text-gray-600 leading-relaxed max-w-xl">
+        I build robust systems across the entire stack — from Rust-powered backends
+        and secure sandboxes to React interfaces and deep learning pipelines.
       </p>
+      <div class="mt-5 flex items-center gap-4 text-sm">
+        <a class="text-gray-500 hover:text-blue-600 transition-colors" href={LINKS.github} target="_blank">
+          GitHub &nearr;
+        </a>
+      </div>
+    </header>
+
+    <!-- Projects -->
+    <section class="mt-16">
+      <h2 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-6">Projects</h2>
+
+      <a class="group relative flex flex-col items-start justify-between rounded-2xl border border-gray-100 p-6 bg-white shadow-sm hover:shadow-md hover:border-gray-200 transition-all mb-4" href="https://github.com/Ei-Ayw/PocketClaw" target="_blank">
+        <div class="flex items-center justify-between w-full">
+          <h3 class="text-base font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">PocketClaw</h3>
+          <span class="text-gray-400 group-hover:text-blue-600 text-xs transition-colors">&nearr;</span>
+        </div>
+        <p class="mt-2 text-sm text-gray-500 leading-relaxed">High-performance cross-platform AI desktop assistant. Direct IPC to Rust core, plugin system, and security sandbox.</p>
+        <div class="flex flex-wrap mt-4">
+          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-50 text-gray-600 border border-gray-200 mr-2">Rust</span>
+          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-50 text-gray-600 border border-gray-200 mr-2">Tauri</span>
+          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-50 text-gray-600 border border-gray-200 mr-2">React</span>
+          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-50 text-gray-600 border border-gray-200 mr-2">TypeScript</span>
+        </div>
+      </a>
+
+      <a class="group relative flex flex-col items-start justify-between rounded-2xl border border-gray-100 p-6 bg-white shadow-sm hover:shadow-md hover:border-gray-200 transition-all mb-4" href="https://github.com/Ei-Ayw/ayw-oj-backend" target="_blank">
+        <div class="flex items-center justify-between w-full">
+          <h3 class="text-base font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">CodingQuest OJ</h3>
+          <span class="text-gray-400 group-hover:text-blue-600 text-xs transition-colors">&nearr;</span>
+        </div>
+        <p class="mt-2 text-sm text-gray-500 leading-relaxed">Full-stack online judge with secure code sandbox, async evaluation, multi-language support, and real-time tracking.</p>
+        <div class="flex flex-wrap mt-4">
+          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-50 text-gray-600 border border-gray-200 mr-2">Java</span>
+          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-50 text-gray-600 border border-gray-200 mr-2">Spring Boot</span>
+          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-50 text-gray-600 border border-gray-200 mr-2">Vue</span>
+          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-50 text-gray-600 border border-gray-200 mr-2">Docker</span>
+          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-50 text-gray-600 border border-gray-200 mr-2">Redis</span>
+        </div>
+      </a>
+
+      <a class="group relative flex flex-col items-start justify-between rounded-2xl border border-gray-100 p-6 bg-white shadow-sm hover:shadow-md hover:border-gray-200 transition-all mb-4" href="https://github.com/Ei-Ayw/SyncPulse" target="_blank">
+        <div class="flex items-center justify-between w-full">
+          <h3 class="text-base font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">SyncPulse</h3>
+          <span class="text-gray-400 group-hover:text-blue-600 text-xs transition-colors">&nearr;</span>
+        </div>
+        <p class="mt-2 text-sm text-gray-500 leading-relaxed">Automated GitHub-to-Gitee repository mirroring platform with OAuth 2.0 and webhook-triggered sync.</p>
+        <div class="flex flex-wrap mt-4">
+          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-50 text-gray-600 border border-gray-200 mr-2">React</span>
+          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-50 text-gray-600 border border-gray-200 mr-2">FastAPI</span>
+          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-50 text-gray-600 border border-gray-200 mr-2">Celery</span>
+          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-50 text-gray-600 border border-gray-200 mr-2">Redis</span>
+        </div>
+      </a>
     </section>
 
-    <!-- Tech & Infrastructure -->
-    <section class="fade-in mb-16">
-      <h2 class="text-sm font-medium text-gray-400 uppercase tracking-widest mb-5">Tech & Infrastructure</h2>
-      <div class="flex flex-col gap-4">
+    <!-- Skills -->
+    <section class="mt-16">
+      <h2 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-6">Tech & Infrastructure</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-y-5 gap-x-8">
         <div>
-          <h3 class="text-xs font-medium text-gray-500 mb-2">Languages</h3>
-          <div class="flex flex-wrap gap-2">
-            {["Rust", "Java", "Python", "TypeScript", "Go"].map((t) => (
-              <span class="bg-gray-100 text-gray-700 rounded-md px-2.5 py-1 text-xs font-medium">{t}</span>
-            ))}
-          </div>
+          <h3 class="text-xs font-medium text-gray-400 mb-2">Languages</h3>
+          <ul class="text-sm text-gray-700 space-y-1">
+            <li>Rust</li>
+            <li>Java</li>
+            <li>Python</li>
+            <li>TypeScript</li>
+            <li>Go</li>
+          </ul>
         </div>
         <div>
-          <h3 class="text-xs font-medium text-gray-500 mb-2">Frameworks</h3>
-          <div class="flex flex-wrap gap-2">
-            {["Spring Boot", "Vue", "React", "FastAPI"].map((t) => (
-              <span class="bg-gray-100 text-gray-700 rounded-md px-2.5 py-1 text-xs font-medium">{t}</span>
-            ))}
-          </div>
+          <h3 class="text-xs font-medium text-gray-400 mb-2">Frameworks</h3>
+          <ul class="text-sm text-gray-700 space-y-1">
+            <li>Spring Boot</li>
+            <li>Vue</li>
+            <li>React</li>
+            <li>FastAPI</li>
+          </ul>
         </div>
         <div>
-          <h3 class="text-xs font-medium text-gray-500 mb-2">AI / ML</h3>
-          <div class="flex flex-wrap gap-2">
-            {["PyTorch", "Deep Learning", "RAG Pipeline"].map((t) => (
-              <span class="bg-gray-100 text-gray-700 rounded-md px-2.5 py-1 text-xs font-medium">{t}</span>
-            ))}
-          </div>
+          <h3 class="text-xs font-medium text-gray-400 mb-2">AI / ML</h3>
+          <ul class="text-sm text-gray-700 space-y-1">
+            <li>PyTorch</li>
+            <li>Deep Learning</li>
+            <li>RAG Pipeline</li>
+          </ul>
         </div>
         <div>
-          <h3 class="text-xs font-medium text-gray-500 mb-2">DevOps</h3>
-          <div class="flex flex-wrap gap-2">
-            {["Docker", "Kubernetes", "Nginx"].map((t) => (
-              <span class="bg-gray-100 text-gray-700 rounded-md px-2.5 py-1 text-xs font-medium">{t}</span>
-            ))}
-          </div>
+          <h3 class="text-xs font-medium text-gray-400 mb-2">DevOps</h3>
+          <ul class="text-sm text-gray-700 space-y-1">
+            <li>Docker</li>
+            <li>Kubernetes</li>
+            <li>Nginx</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- Featured Projects -->
-    <section class="fade-in mb-16">
-      <h2 class="text-sm font-medium text-gray-400 uppercase tracking-widest mb-6">Featured Projects</h2>
-      <div class="flex flex-col gap-4">
-
-        <a class="group block border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow" href="https://github.com/Ei-Ayw/PocketClaw" target="_blank">
-          <div class="flex items-center justify-between mb-2">
-            <h3 class="text-base font-semibold text-slate-900 group-hover:text-blue-600 transition-colors m-0">PocketClaw</h3>
-            <Icon class="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors" name="ri:arrow-right-up-line" />
+    <!-- Engineering Notes -->
+    <section class="mt-16">
+      <h2 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-6">Engineering Notes</h2>
+      <div class="flex flex-col divide-y divide-gray-100">
+        <a class="group flex items-center justify-between py-3.5 hover:text-blue-600 transition-colors" href="/notes/zeroclaw-ipc-architecture">
+          <div>
+            <span class="text-sm font-medium text-slate-800 group-hover:text-blue-600 transition-colors">ZeroClaw IPC Architecture: Bridging Rust and React</span>
+            <span class="block text-xs text-gray-400 mt-0.5">2026-03-01</span>
           </div>
-          <p class="text-sm text-gray-500 m-0 mb-3">High-performance cross-platform AI desktop assistant. Direct IPC to Rust core, plugin system, and security sandbox.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">Rust</span>
-            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">Tauri</span>
-            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">React</span>
-            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">TypeScript</span>
-          </div>
+          <span class="text-gray-300 group-hover:text-blue-600 text-xs ml-4 flex-shrink-0 transition-colors">&nearr;</span>
         </a>
-
-        <a class="group block border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow" href="https://github.com/Ei-Ayw/ayw-oj-backend" target="_blank">
-          <div class="flex items-center justify-between mb-2">
-            <h3 class="text-base font-semibold text-slate-900 group-hover:text-blue-600 transition-colors m-0">CodingQuest OJ</h3>
-            <Icon class="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors" name="ri:arrow-right-up-line" />
+        <a class="group flex items-center justify-between py-3.5 hover:text-blue-600 transition-colors" href="https://github.com/Ei-Ayw/ayw-oj-backend/blob/master/SANDBOX_DESIGN.md" target="_blank">
+          <div>
+            <span class="text-sm font-medium text-slate-800 group-hover:text-blue-600 transition-colors">Designing a Secure, Async Code Sandbox for OJ Systems</span>
+            <span class="block text-xs text-gray-400 mt-0.5">Architecture doc</span>
           </div>
-          <p class="text-sm text-gray-500 m-0 mb-3">Full-stack online judge with secure code sandbox, async evaluation, multi-language support, and real-time tracking.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">Java</span>
-            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">Spring Boot</span>
-            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">Vue</span>
-            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">Docker</span>
-            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">Redis</span>
-          </div>
-        </a>
-
-        <a class="group block border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow" href="https://github.com/Ei-Ayw/SyncPulse" target="_blank">
-          <div class="flex items-center justify-between mb-2">
-            <h3 class="text-base font-semibold text-slate-900 group-hover:text-blue-600 transition-colors m-0">SyncPulse</h3>
-            <Icon class="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors" name="ri:arrow-right-up-line" />
-          </div>
-          <p class="text-sm text-gray-500 m-0 mb-3">Automated GitHub-to-Gitee repository mirroring platform with OAuth 2.0 and webhook-triggered sync.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">React</span>
-            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">FastAPI</span>
-            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">Celery</span>
-            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">Redis</span>
-          </div>
-        </a>
-
-      </div>
-    </section>
-
-    <!-- Selected Writing -->
-    <section class="fade-in mb-16">
-      <h2 class="text-sm font-medium text-gray-400 uppercase tracking-widest mb-5">Selected Writing</h2>
-      <div class="flex flex-col">
-        <a class="group flex items-center justify-between py-3 border-b border-gray-100 hover:bg-gray-50 -mx-3 px-3 rounded transition-colors" href="https://blog.csdn.net/2301_79433391?type=blog" target="_blank">
-          <span class="text-sm text-slate-800 group-hover:text-blue-600 transition-colors">Deep Dive into PyTorch Memory Optimization</span>
-          <Icon class="w-3.5 h-3.5 text-gray-400 group-hover:text-blue-600 transition-colors flex-shrink-0 ml-3" name="ri:arrow-right-up-line" />
-        </a>
-        <a class="group flex items-center justify-between py-3 border-b border-gray-100 hover:bg-gray-50 -mx-3 px-3 rounded transition-colors" href="https://blog.csdn.net/2301_79433391?type=blog" target="_blank">
-          <span class="text-sm text-slate-800 group-hover:text-blue-600 transition-colors">Building a Secure Code Sandbox for Online Judges</span>
-          <Icon class="w-3.5 h-3.5 text-gray-400 group-hover:text-blue-600 transition-colors flex-shrink-0 ml-3" name="ri:arrow-right-up-line" />
-        </a>
-        <a class="group flex items-center justify-between py-3 hover:bg-gray-50 -mx-3 px-3 rounded transition-colors" href="https://blog.csdn.net/2301_79433391?type=blog" target="_blank">
-          <span class="text-sm text-slate-800 group-hover:text-blue-600 transition-colors">Rust + Tauri: The Future of Cross-Platform Apps</span>
-          <Icon class="w-3.5 h-3.5 text-gray-400 group-hover:text-blue-600 transition-colors flex-shrink-0 ml-3" name="ri:arrow-right-up-line" />
+          <span class="text-gray-300 group-hover:text-blue-600 text-xs ml-4 flex-shrink-0 transition-colors">&nearr;</span>
         </a>
       </div>
     </section>
 
     <!-- Education -->
-    <section class="fade-in mb-16">
-      <h2 class="text-sm font-medium text-gray-400 uppercase tracking-widest mb-4">Education</h2>
+    <section class="mt-16">
+      <h2 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-6">Education</h2>
       <div>
-        <h3 class="text-base font-semibold text-slate-900 m-0">Data Science & Big Data Technology</h3>
-        <p class="text-sm text-gray-500 m-0 mt-1">B.Eng.</p>
-        <p class="text-sm text-gray-600 m-0 mt-2 leading-relaxed">
-          Focused on the intersection of AI research and full-stack engineering throughout undergrad — building end-to-end systems from deep learning models to production-ready web applications.
+        <h3 class="text-sm font-semibold text-slate-900">Data Science & Big Data Technology</h3>
+        <p class="text-sm text-gray-500 mt-0.5">B.Eng.</p>
+        <p class="text-sm text-gray-600 mt-2 leading-relaxed max-w-xl">
+          Focused on the intersection of AI research and full-stack engineering — building
+          end-to-end systems from deep learning models to production-ready applications.
         </p>
       </div>
     </section>
 
-    <!-- Status & Time -->
-    <section class="fade-in mb-16">
-      <h2 class="text-sm font-medium text-gray-400 uppercase tracking-widest mb-4">Now</h2>
-      <div class="flex items-center gap-2 mb-3">
-        <span class="relative flex h-2 w-2">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-        </span>
-        <span class="text-sm text-gray-600">Building open-source projects & researching AI/ML</span>
-      </div>
-      <TimeZone />
-    </section>
-
     <!-- Footer -->
-    <footer class="fade-in border-t border-gray-200 pt-8 pb-12">
-      <p class="text-xs text-gray-400 text-center">
-        &copy; 2025 Ei-Ayw &middot; Built with
-        <a class="text-gray-500 hover:text-slate-900 transition-colors" href="https://astro.build/" target="_blank">Astro</a>
+    <footer class="mt-20 pt-8 border-t border-gray-100">
+      <p class="text-xs text-gray-400">
+        &copy; 2025 Ei-Ayw
       </p>
     </footer>
 

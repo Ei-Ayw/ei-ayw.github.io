@@ -1,10 +1,11 @@
 // uno.config.ts
 import { defineConfig, presetWind3, presetWebFonts } from "unocss";
+import presetTypography from "@unocss/preset-typography";
 
 export default defineConfig({
   content: {
     filesystem: [
-      "src/**/*.{html,js,ts,jsx,tsx,vue,svelte,astro}",
+      "src/**/*.{html,js,ts,jsx,tsx,vue,svelte,astro,md}",
     ],
   },
   theme: {
@@ -47,12 +48,32 @@ export default defineConfig({
   },
   presets: [
     presetWind3(),
+    presetTypography({
+      cssExtend: {
+        "code::before": { content: '""' },
+        "code::after": { content: '""' },
+        code: {
+          "background-color": "#F3F4F6",
+          padding: "2px 6px",
+          "border-radius": "4px",
+          "font-size": "0.875em",
+        },
+        a: {
+          color: "#2563EB",
+          "text-decoration": "none",
+        },
+        "a:hover": {
+          color: "#3B82F6",
+        },
+      },
+    }),
     presetWebFonts({
       provider: "google",
       fonts: {
         sans: [
           { name: "Inter", weights: [300, 400, 500, 600, 700] },
         ],
+        mono: ["JetBrains Mono"],
       },
     }),
   ],

@@ -1,6 +1,5 @@
 export const LINKS = {
   github: "https://github.com/Ei-Ayw",
-  csdn: "https://blog.csdn.net/2301_79433391?type=blog",
 };
 
 export const loaderAnimation = [

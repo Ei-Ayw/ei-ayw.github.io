@@ -10,10 +10,5 @@ const { title, description } = Astro.props;
 ---
 
 <BasicLayout description={description} title={title}>
-  <div
-    class="loader bg-white fixed inset-0 z-50 flex justify-center items-center"
-    slot="loader"
-  >
-  </div>
   <slot />
 </BasicLayout>

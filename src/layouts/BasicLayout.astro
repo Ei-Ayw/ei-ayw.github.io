@@ -14,7 +14,7 @@ const schema = {
   "@type": "Person",
   name: "Ei-Ayw",
   url: Astro.url.origin,
-  sameAs: [LINKS.github, LINKS.csdn],
+  sameAs: [LINKS.github],
   image: `${Astro.url.origin}/avatar.jpg`,
   jobTitle: "Full-Stack Engineer & AI Researcher",
   worksFor: {
@@ -59,38 +59,21 @@ const schema = {
       type="application/ld+json"
     />
   </head>
-  <body class="bg-white text-slate-900 antialiased">
-    <slot name="loader" />
+  <body class="bg-white text-gray-800 antialiased">
     <slot />
   </body>
 </html>
 
 <style is:global>
-  * {
-    box-sizing: border-box;
-  }
-
+  * { box-sizing: border-box; }
   body {
     margin: 0;
     font-family: "Inter", system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2, h3, h4, h5, h6, p {
     font-family: "Inter", system-ui, -apple-system, sans-serif;
   }
-
-  p {
-    font-family: "Inter", system-ui, -apple-system, sans-serif;
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: #2563EB;
-  }
+  a { color: inherit; text-decoration: none; }
 </style>
