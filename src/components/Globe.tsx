@@ -5,18 +5,18 @@ import worldData from "../lib/world.json";
 const GlobeComponent = () => {
   let mapContainer: HTMLDivElement | undefined;
 
-  const visitedCountries = ["China"];
+  const highlightCountry = "China";
 
   onMount(() => {
     if (!mapContainer) return;
 
     const width = mapContainer.clientWidth;
-    const height = 500;
+    const height = 280;
     const sensitivity = 75;
 
     let projection = d3
       .geoOrthographic()
-      .scale(250)
+      .scale(140)
       .center([0, 0])
       .rotate([-104, -35])
       .translate([width / 2, height / 2]);
@@ -32,9 +32,9 @@ const GlobeComponent = () => {
 
     svg
       .append("circle")
-      .attr("fill", "#EEE")
-      .attr("stroke", "#000")
-      .attr("stroke-width", "0.2")
+      .attr("fill", "#F9FAFB")
+      .attr("stroke", "#E5E7EB")
+      .attr("stroke-width", "1")
       .attr("cx", width / 2)
       .attr("cy", height / 2)
       .attr("r", initialScale);
@@ -50,22 +50,22 @@ const GlobeComponent = () => {
       .append("path")
       .attr("d", (d: any) => pathGenerator(d as any))
       .attr("fill", (d: { properties: { name: string } }) =>
-        visitedCountries.includes(d.properties.name) ? "#E63946" : "white"
+        d.properties.name === highlightCountry ? "#2563EB" : "#E5E7EB"
       )
-      .style("stroke", "black")
-      .style("stroke-width", 0.3)
-      .style("opacity", 0.8);
+      .style("stroke", "#fff")
+      .style("stroke-width", 0.5)
+      .style("opacity", 0.9);
 
     d3.timer(() => {
       const rotate = projection.rotate();
       const k = sensitivity / projection.scale();
-      projection.rotate([rotate[0] - 1 * k, rotate[1]]);
+      projection.rotate([rotate[0] - 0.5 * k, rotate[1]]);
       svg.selectAll("path").attr("d", (d: any) => pathGenerator(d as any));
     }, 200);
   });
 
   return (
-    <div class="flex flex-col text-white justify-center items-center w-full h-full">
+    <div class="flex justify-center items-center w-full h-full">
       <div class="w-full" ref={mapContainer}></div>
     </div>
   );

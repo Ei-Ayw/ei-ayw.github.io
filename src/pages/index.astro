@@ -1,97 +1,177 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card/index.astro";
-import IntroCard from "../components/IntroCard.astro";
-import ContactsCard from "../components/ContactsCard.astro";
+import { LINKS } from "../lib/constants";
+import { Icon } from "astro-icon/components";
 import TimeZone from "../components/TimeZoneCard.astro";
-import AboutMe from "../components/AboutMe.astro";
-import Now from "../components/Now.astro";
 import Globe from "../components/Globe";
 ---
 
 <script>
-  import { stagger, animate, type AnimationSequence } from "motion";
+  import { animate } from "motion";
   import { loaderAnimation } from "../lib/constants";
-  const cards = document.querySelectorAll(".card");
 
-  const sequence = [
-    loaderAnimation,
-    [
-      cards,
-      { y: ["40%", "0%"], opacity: [0, 1] },
-      {
-        type: "spring",
-        at: "-0.1",
-        delay: stagger(0.3),
-      },
-    ],
-  ];
-
-  animate(sequence as AnimationSequence);
+  const sections = document.querySelectorAll(".fade-in");
+  animate(loaderAnimation as any);
+  animate(
+    sections,
+    { opacity: [0, 1], y: [20, 0] },
+    { delay: 0.1, duration: 0.5, easing: "ease-out" }
+  );
 </script>
 
 <Layout
   description="Full-Stack Engineer & AI Researcher. Building robust systems and exploring AI/ML frontiers with Rust, Java, Python, React, Docker, and PyTorch."
-  title="Ei-Ayw - Full-Stack Engineer & AI Researcher"
+  title="Ei-Ayw — Full-Stack Engineer & AI Researcher"
 >
-  <main
-    class="text-white m-auto p-2 grid gap-2 max-w-6xl overflow-hidden relative w-full sm:p-4 sm:gap-2 md:grid-cols-2 md:gap-3 md:p-6 lg:h-screen lg:grid-rows-8 lg:grid-cols-4 lg:gap-4 lg:max-h-[800px]"
-  >
-    <IntroCard />
-    <AboutMe />
-    <ContactsCard />
-    <TimeZone />
-    <Now />
-    <Card
-      colorText="text-neutral-900"
-      colSpan="md:col-span-1"
-      rowSpan="md:row-span-1"
-      title="Based in China"
-    >
-      <div class="h-full w-full absolute inset-0 -z-10">
+  <main class="max-w-2xl mx-auto px-6 py-16 md:py-24">
+
+    <!-- Hero -->
+    <section class="fade-in mb-16">
+      <div class="flex items-center gap-5 mb-8">
+        <img
+          alt="Ei-Ayw"
+          class="w-16 h-16 rounded-full border border-gray-200 shadow-sm object-cover"
+          src="/avatar.jpg"
+        />
+        <div>
+          <h1 class="text-2xl font-semibold tracking-tight m-0">Ei-Ayw</h1>
+          <p class="text-gray-500 text-sm m-0 mt-1">Full-Stack Engineer & AI Researcher</p>
+        </div>
+      </div>
+      <div class="flex gap-3">
+        <a
+          class="inline-flex items-center gap-1.5 text-sm text-gray-600 hover:text-slate-900 transition-colors"
+          href={LINKS.github}
+          target="_blank"
+        >
+          <Icon class="w-4 h-4" name="ri:github-fill" />
+          GitHub
+        </a>
+        <span class="text-gray-300">|</span>
+        <a
+          class="inline-flex items-center gap-1.5 text-sm text-gray-600 hover:text-slate-900 transition-colors"
+          href={LINKS.csdn}
+          target="_blank"
+        >
+          <Icon class="w-4 h-4" name="ri:article-fill" />
+          CSDN
+        </a>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="fade-in mb-16">
+      <h2 class="text-sm font-medium text-gray-400 uppercase tracking-widest mb-4">About</h2>
+      <p class="text-base text-gray-700 leading-relaxed mb-4">
+        I'm a full-stack engineer and AI researcher based in China. I build robust systems
+        across the entire stack — from backend services and infrastructure to frontend interfaces
+        and deep learning pipelines.
+      </p>
+      <div class="flex flex-wrap gap-2">
+        {["Rust", "Java", "Python", "React", "Vue", "Astro", "Node.js", "Spring Boot", "Docker", "Kubernetes", "PyTorch"].map((tag) => (
+          <span class="bg-gray-100 text-gray-700 rounded-md px-2.5 py-1 text-xs font-medium">{tag}</span>
+        ))}
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="fade-in mb-16">
+      <h2 class="text-sm font-medium text-gray-400 uppercase tracking-widest mb-6">Featured Projects</h2>
+      <div class="flex flex-col gap-4">
+
+        <a class="group block border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow" href="https://github.com/Ei-Ayw" target="_blank">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="text-base font-semibold text-slate-900 group-hover:text-blue-600 transition-colors m-0">PocketClaw</h3>
+            <Icon class="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors" name="ri:arrow-right-up-line" />
+          </div>
+          <p class="text-sm text-gray-500 m-0 mb-3">Lightweight, extensible web scraper framework for structured data extraction.</p>
+          <div class="flex gap-2">
+            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">Python</span>
+            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">Scrapy</span>
+          </div>
+        </a>
+
+        <a class="group block border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow" href="https://github.com/Ei-Ayw" target="_blank">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="text-base font-semibold text-slate-900 group-hover:text-blue-600 transition-colors m-0">CodingQuest OJ</h3>
+            <Icon class="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors" name="ri:arrow-right-up-line" />
+          </div>
+          <p class="text-sm text-gray-500 m-0 mb-3">Full-featured online judge platform with real-time submission evaluation and leaderboard.</p>
+          <div class="flex gap-2">
+            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">Java</span>
+            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">Spring Boot</span>
+            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">React</span>
+          </div>
+        </a>
+
+        <a class="group block border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow" href="https://github.com/Ei-Ayw" target="_blank">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="text-base font-semibold text-slate-900 group-hover:text-blue-600 transition-colors m-0">SyncPulse</h3>
+            <Icon class="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors" name="ri:arrow-right-up-line" />
+          </div>
+          <p class="text-sm text-gray-500 m-0 mb-3">Real-time data synchronization engine for distributed systems with conflict resolution.</p>
+          <div class="flex gap-2">
+            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">Rust</span>
+            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">gRPC</span>
+          </div>
+        </a>
+
+        <a class="group block border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow" href="https://github.com/Ei-Ayw" target="_blank">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="text-base font-semibold text-slate-900 group-hover:text-blue-600 transition-colors m-0">DFMamba</h3>
+            <Icon class="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors" name="ri:arrow-right-up-line" />
+          </div>
+          <p class="text-sm text-gray-500 m-0 mb-3">State-space deep learning model for sequential data, advancing Mamba architecture research.</p>
+          <div class="flex gap-2">
+            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">Python</span>
+            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">PyTorch</span>
+          </div>
+        </a>
+
+        <a class="group block border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow" href="https://github.com/Ei-Ayw" target="_blank">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="text-base font-semibold text-slate-900 group-hover:text-blue-600 transition-colors m-0">KnowledgeForge</h3>
+            <Icon class="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors" name="ri:arrow-right-up-line" />
+          </div>
+          <p class="text-sm text-gray-500 m-0 mb-3">Automated knowledge graph construction and reasoning pipeline from unstructured text.</p>
+          <div class="flex gap-2">
+            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">Python</span>
+            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">Neo4j</span>
+            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">NLP</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Status & Time -->
+    <section class="fade-in mb-16">
+      <h2 class="text-sm font-medium text-gray-400 uppercase tracking-widest mb-4">Now</h2>
+      <div class="flex items-center gap-2 mb-3">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+        </span>
+        <span class="text-sm text-gray-600">Building open-source projects & researching AI/ML</span>
+      </div>
+      <TimeZone />
+    </section>
+
+    <!-- Globe -->
+    <section class="fade-in mb-16">
+      <h2 class="text-sm font-medium text-gray-400 uppercase tracking-widest mb-4">Based in China</h2>
+      <div class="border border-gray-200 rounded-lg overflow-hidden h-[280px] relative">
         <Globe client:load />
       </div>
-    </Card>
-    <Card
-      colSpan="md:col-span-1"
-      rowSpan="md:row-span-2 flex gap-1"
-      title="Projects"
-    >
-      <div class="flex flex-col gap-1">
-        <a class="list-none w-full text-neutral-100 hover:text-primary-400 ease-in-out transition-colors border-b-neutral-400 border-dashed border-b-1 my-0 decoration-none" href="https://github.com/Ei-Ayw" target="_blank">
-          <p class="inline-block text-xs font-bold">PocketClaw</p>
-          <p class="text-xs text-gray-400">Lightweight web scraper framework</p>
-        </a>
-        <a class="list-none w-full text-neutral-100 hover:text-primary-400 ease-in-out transition-colors border-b-neutral-400 border-dashed border-b-1 my-0 decoration-none" href="https://github.com/Ei-Ayw" target="_blank">
-          <p class="inline-block text-xs font-bold">CodingQuest OJ</p>
-          <p class="text-xs text-gray-400">Online judge platform</p>
-        </a>
-        <a class="list-none w-full text-neutral-100 hover:text-primary-400 ease-in-out transition-colors border-b-neutral-400 border-dashed border-b-1 my-0 decoration-none" href="https://github.com/Ei-Ayw" target="_blank">
-          <p class="inline-block text-xs font-bold">SyncPulse</p>
-          <p class="text-xs text-gray-400">Real-time data sync engine</p>
-        </a>
-        <a class="list-none w-full text-neutral-100 hover:text-primary-400 ease-in-out transition-colors border-b-neutral-400 border-dashed border-b-1 my-0 decoration-none" href="https://github.com/Ei-Ayw" target="_blank">
-          <p class="inline-block text-xs font-bold">CryptoSage</p>
-          <p class="text-xs text-gray-400">Crypto analytics toolkit</p>
-        </a>
-        <a class="list-none w-full text-neutral-100 hover:text-primary-400 ease-in-out transition-colors border-b-neutral-400 border-dashed border-b-1 my-0 decoration-none" href="https://github.com/Ei-Ayw" target="_blank">
-          <p class="inline-block text-xs font-bold">DFMamba</p>
-          <p class="text-xs text-gray-400">Deep learning research model</p>
-        </a>
-        <a class="list-none w-full text-neutral-100 hover:text-primary-400 ease-in-out transition-colors border-b-neutral-400 border-dashed border-b-1 my-0 decoration-none" href="https://github.com/Ei-Ayw" target="_blank">
-          <p class="inline-block text-xs font-bold">KnowledgeForge</p>
-          <p class="text-xs text-gray-400">Knowledge graph builder</p>
-        </a>
-      </div>
-    </Card>
-    <Card colSpan="md:col-span-1" rowSpan="md:row-span-1">
-      <p class="text-xs">
-        &copy; 2025 &middot; Crafted with <a
-          class="text-red-500"
-          href="https://astro.build/"
-          target="_blank">Astro</a
-        > by Ei-Ayw.
+    </section>
+
+    <!-- Footer -->
+    <footer class="fade-in border-t border-gray-200 pt-8 pb-12">
+      <p class="text-xs text-gray-400 text-center">
+        &copy; 2025 Ei-Ayw &middot; Built with
+        <a class="text-gray-500 hover:text-slate-900 transition-colors" href="https://astro.build/" target="_blank">Astro</a>
       </p>
-    </Card>
+    </footer>
+
   </main>
 </Layout>
