@@ -3,11 +3,9 @@ import Layout from "../layouts/Layout.astro";
 import { LINKS } from "../lib/constants";
 import { Icon } from "astro-icon/components";
 import TimeZone from "../components/TimeZoneCard.astro";
-import Globe from "../components/Globe";
 ---
 
 <script>
-  // Hide loader
   const loader = document.querySelector(".loader") as HTMLElement;
   if (loader) {
     loader.style.opacity = "0";
@@ -29,6 +27,9 @@ import Globe from "../components/Globe";
   .fade-in:nth-child(4) { animation-delay: 0.2s; }
   .fade-in:nth-child(5) { animation-delay: 0.25s; }
   .fade-in:nth-child(6) { animation-delay: 0.3s; }
+  .fade-in:nth-child(7) { animation-delay: 0.35s; }
+  .fade-in:nth-child(8) { animation-delay: 0.4s; }
+  .fade-in:nth-child(9) { animation-delay: 0.45s; }
 </style>
 
 <Layout
@@ -39,17 +40,18 @@ import Globe from "../components/Globe";
 
     <!-- Hero -->
     <section class="fade-in mb-16">
-      <div class="flex items-center gap-5 mb-8">
+      <div class="flex items-center gap-5 mb-6">
         <img
           alt="Ei-Ayw"
-          class="w-16 h-16 rounded-full border border-gray-200 shadow-sm object-cover"
+          class="w-18 h-18 rounded-full border border-gray-200 shadow-sm object-cover"
           src="/avatar.jpg"
         />
         <div>
-          <h1 class="text-2xl font-semibold tracking-tight m-0">Ei-Ayw</h1>
-          <p class="text-gray-500 text-sm m-0 mt-1">Full-Stack Engineer & AI Researcher</p>
+          <h1 class="text-4xl font-bold tracking-tight m-0">Ei-Ayw</h1>
+          <p class="text-gray-500 text-base m-0 mt-1">Full-Stack Engineer & AI Researcher</p>
         </div>
       </div>
+      <p class="text-gray-400 italic text-sm mb-6">"Bridging the gap between low-level system performance and front-end user experience."</p>
       <div class="flex gap-3">
         <a
           class="inline-flex items-center gap-1.5 text-sm text-gray-600 hover:text-slate-900 transition-colors"
@@ -74,85 +76,132 @@ import Globe from "../components/Globe";
     <!-- About -->
     <section class="fade-in mb-16">
       <h2 class="text-sm font-medium text-gray-400 uppercase tracking-widest mb-4">About</h2>
-      <p class="text-base text-gray-700 leading-relaxed mb-4">
+      <p class="text-base text-gray-700 leading-relaxed">
         I'm a full-stack engineer and AI researcher based in China. I build robust systems
         across the entire stack — from backend services and infrastructure to frontend interfaces
-        and deep learning pipelines.
+        and deep learning pipelines. Passionate about turning research insights into production-grade
+        software that scales.
       </p>
-      <div class="flex flex-wrap gap-2">
-        {["Rust", "Java", "Python", "React", "Vue", "Astro", "Node.js", "Spring Boot", "Docker", "Kubernetes", "PyTorch"].map((tag) => (
-          <span class="bg-gray-100 text-gray-700 rounded-md px-2.5 py-1 text-xs font-medium">{tag}</span>
-        ))}
+    </section>
+
+    <!-- Tech & Infrastructure -->
+    <section class="fade-in mb-16">
+      <h2 class="text-sm font-medium text-gray-400 uppercase tracking-widest mb-5">Tech & Infrastructure</h2>
+      <div class="flex flex-col gap-4">
+        <div>
+          <h3 class="text-xs font-medium text-gray-500 mb-2">Languages</h3>
+          <div class="flex flex-wrap gap-2">
+            {["Rust", "Java", "Python", "TypeScript", "Go"].map((t) => (
+              <span class="bg-gray-100 text-gray-700 rounded-md px-2.5 py-1 text-xs font-medium">{t}</span>
+            ))}
+          </div>
+        </div>
+        <div>
+          <h3 class="text-xs font-medium text-gray-500 mb-2">Frameworks</h3>
+          <div class="flex flex-wrap gap-2">
+            {["Spring Boot", "Vue", "React", "FastAPI"].map((t) => (
+              <span class="bg-gray-100 text-gray-700 rounded-md px-2.5 py-1 text-xs font-medium">{t}</span>
+            ))}
+          </div>
+        </div>
+        <div>
+          <h3 class="text-xs font-medium text-gray-500 mb-2">AI / ML</h3>
+          <div class="flex flex-wrap gap-2">
+            {["PyTorch", "Deep Learning", "RAG Pipeline"].map((t) => (
+              <span class="bg-gray-100 text-gray-700 rounded-md px-2.5 py-1 text-xs font-medium">{t}</span>
+            ))}
+          </div>
+        </div>
+        <div>
+          <h3 class="text-xs font-medium text-gray-500 mb-2">DevOps</h3>
+          <div class="flex flex-wrap gap-2">
+            {["Docker", "Kubernetes", "Nginx"].map((t) => (
+              <span class="bg-gray-100 text-gray-700 rounded-md px-2.5 py-1 text-xs font-medium">{t}</span>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Projects -->
+    <!-- Featured Projects -->
     <section class="fade-in mb-16">
       <h2 class="text-sm font-medium text-gray-400 uppercase tracking-widest mb-6">Featured Projects</h2>
       <div class="flex flex-col gap-4">
 
-        <a class="group block border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow" href="https://github.com/Ei-Ayw" target="_blank">
+        <a class="group block border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow" href="https://github.com/Ei-Ayw/PocketClaw" target="_blank">
           <div class="flex items-center justify-between mb-2">
             <h3 class="text-base font-semibold text-slate-900 group-hover:text-blue-600 transition-colors m-0">PocketClaw</h3>
             <Icon class="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors" name="ri:arrow-right-up-line" />
           </div>
-          <p class="text-sm text-gray-500 m-0 mb-3">Lightweight, extensible web scraper framework for structured data extraction.</p>
-          <div class="flex gap-2">
-            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">Python</span>
-            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">Scrapy</span>
+          <p class="text-sm text-gray-500 m-0 mb-3">High-performance cross-platform AI desktop assistant. Direct IPC to Rust core, plugin system, and security sandbox.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">Rust</span>
+            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">Tauri</span>
+            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">React</span>
+            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">TypeScript</span>
           </div>
         </a>
 
-        <a class="group block border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow" href="https://github.com/Ei-Ayw" target="_blank">
+        <a class="group block border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow" href="https://github.com/Ei-Ayw/ayw-oj-backend" target="_blank">
           <div class="flex items-center justify-between mb-2">
             <h3 class="text-base font-semibold text-slate-900 group-hover:text-blue-600 transition-colors m-0">CodingQuest OJ</h3>
             <Icon class="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors" name="ri:arrow-right-up-line" />
           </div>
-          <p class="text-sm text-gray-500 m-0 mb-3">Full-featured online judge platform with real-time submission evaluation and leaderboard.</p>
-          <div class="flex gap-2">
+          <p class="text-sm text-gray-500 m-0 mb-3">Full-stack online judge with secure code sandbox, async evaluation, multi-language support, and real-time tracking.</p>
+          <div class="flex flex-wrap gap-2">
             <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">Java</span>
             <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">Spring Boot</span>
-            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">React</span>
+            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">Vue</span>
+            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">Docker</span>
+            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">Redis</span>
           </div>
         </a>
 
-        <a class="group block border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow" href="https://github.com/Ei-Ayw" target="_blank">
+        <a class="group block border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow" href="https://github.com/Ei-Ayw/SyncPulse" target="_blank">
           <div class="flex items-center justify-between mb-2">
             <h3 class="text-base font-semibold text-slate-900 group-hover:text-blue-600 transition-colors m-0">SyncPulse</h3>
             <Icon class="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors" name="ri:arrow-right-up-line" />
           </div>
-          <p class="text-sm text-gray-500 m-0 mb-3">Real-time data synchronization engine for distributed systems with conflict resolution.</p>
-          <div class="flex gap-2">
-            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">Rust</span>
-            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">gRPC</span>
+          <p class="text-sm text-gray-500 m-0 mb-3">Automated GitHub-to-Gitee repository mirroring platform with OAuth 2.0 and webhook-triggered sync.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">React</span>
+            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">FastAPI</span>
+            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">Celery</span>
+            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">Redis</span>
           </div>
         </a>
 
-        <a class="group block border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow" href="https://github.com/Ei-Ayw" target="_blank">
-          <div class="flex items-center justify-between mb-2">
-            <h3 class="text-base font-semibold text-slate-900 group-hover:text-blue-600 transition-colors m-0">DFMamba</h3>
-            <Icon class="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors" name="ri:arrow-right-up-line" />
-          </div>
-          <p class="text-sm text-gray-500 m-0 mb-3">State-space deep learning model for sequential data, advancing Mamba architecture research.</p>
-          <div class="flex gap-2">
-            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">Python</span>
-            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">PyTorch</span>
-          </div>
-        </a>
+      </div>
+    </section>
 
-        <a class="group block border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow" href="https://github.com/Ei-Ayw" target="_blank">
-          <div class="flex items-center justify-between mb-2">
-            <h3 class="text-base font-semibold text-slate-900 group-hover:text-blue-600 transition-colors m-0">KnowledgeForge</h3>
-            <Icon class="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors" name="ri:arrow-right-up-line" />
-          </div>
-          <p class="text-sm text-gray-500 m-0 mb-3">Automated knowledge graph construction and reasoning pipeline from unstructured text.</p>
-          <div class="flex gap-2">
-            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">Python</span>
-            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">Neo4j</span>
-            <span class="bg-gray-100 text-gray-600 rounded-md px-2 py-0.5 text-xs">NLP</span>
-          </div>
+    <!-- Selected Writing -->
+    <section class="fade-in mb-16">
+      <h2 class="text-sm font-medium text-gray-400 uppercase tracking-widest mb-5">Selected Writing</h2>
+      <div class="flex flex-col">
+        <a class="group flex items-center justify-between py-3 border-b border-gray-100 hover:bg-gray-50 -mx-3 px-3 rounded transition-colors" href="https://blog.csdn.net/2301_79433391?type=blog" target="_blank">
+          <span class="text-sm text-slate-800 group-hover:text-blue-600 transition-colors">Deep Dive into PyTorch Memory Optimization</span>
+          <Icon class="w-3.5 h-3.5 text-gray-400 group-hover:text-blue-600 transition-colors flex-shrink-0 ml-3" name="ri:arrow-right-up-line" />
         </a>
+        <a class="group flex items-center justify-between py-3 border-b border-gray-100 hover:bg-gray-50 -mx-3 px-3 rounded transition-colors" href="https://blog.csdn.net/2301_79433391?type=blog" target="_blank">
+          <span class="text-sm text-slate-800 group-hover:text-blue-600 transition-colors">Building a Secure Code Sandbox for Online Judges</span>
+          <Icon class="w-3.5 h-3.5 text-gray-400 group-hover:text-blue-600 transition-colors flex-shrink-0 ml-3" name="ri:arrow-right-up-line" />
+        </a>
+        <a class="group flex items-center justify-between py-3 hover:bg-gray-50 -mx-3 px-3 rounded transition-colors" href="https://blog.csdn.net/2301_79433391?type=blog" target="_blank">
+          <span class="text-sm text-slate-800 group-hover:text-blue-600 transition-colors">Rust + Tauri: The Future of Cross-Platform Apps</span>
+          <Icon class="w-3.5 h-3.5 text-gray-400 group-hover:text-blue-600 transition-colors flex-shrink-0 ml-3" name="ri:arrow-right-up-line" />
+        </a>
+      </div>
+    </section>
 
+    <!-- Education -->
+    <section class="fade-in mb-16">
+      <h2 class="text-sm font-medium text-gray-400 uppercase tracking-widest mb-4">Education</h2>
+      <div>
+        <h3 class="text-base font-semibold text-slate-900 m-0">Data Science & Big Data Technology</h3>
+        <p class="text-sm text-gray-500 m-0 mt-1">B.Eng.</p>
+        <p class="text-sm text-gray-600 m-0 mt-2 leading-relaxed">
+          Focused on the intersection of AI research and full-stack engineering throughout undergrad — building end-to-end systems from deep learning models to production-ready web applications.
+        </p>
       </div>
     </section>
 
@@ -167,14 +216,6 @@ import Globe from "../components/Globe";
         <span class="text-sm text-gray-600">Building open-source projects & researching AI/ML</span>
       </div>
       <TimeZone />
-    </section>
-
-    <!-- Globe -->
-    <section class="fade-in mb-16">
-      <h2 class="text-sm font-medium text-gray-400 uppercase tracking-widest mb-4">Based in China</h2>
-      <div class="border border-gray-200 rounded-lg overflow-hidden h-[280px] relative">
-        <Globe client:load />
-      </div>
     </section>
 
     <!-- Footer -->
