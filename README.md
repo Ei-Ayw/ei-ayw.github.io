@@ -15,7 +15,7 @@ npx hexo new "我的笔记标题"
 
 ```markdown
 ---
-title: 我的笔记标题
+title:  我的笔记标题
 date: 2026-09-03
 tags: [标签]
 categories: [分类]
