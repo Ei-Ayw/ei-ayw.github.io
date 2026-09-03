@@ -1,0 +1,40 @@
+# NexT 主题覆盖配置（Alternate Theme Config）
+# 完整默认配置见 node_modules/hexo-theme-next/_config.yml
+# 文档: https://theme-next.js.org/docs/getting-started/configuration
+
+# 主题风格: Muse | Mist | Pisces | Gemini
+scheme: Gemini
+
+# 跟随系统深色模式
+darkmode: true
+
+# 顶部菜单
+menu:
+  home: / || fa fa-home
+  about: /about/ || fa fa-user
+  tags: /tags/ || fa fa-tags
+  categories: /categories/ || fa fa-th
+  archives: /archives/ || fa fa-archive
+
+menu_settings:
+  icons: true
+  badges: true
+
+# 侧栏社交链接
+social:
+  GitHub: https://github.com/Ei-Ayw || fab fa-github
+
+social_icons:
+  enable: true
+  icons_only: false
+  transition: true
+
+sidebar:
+  position: left
+  display: post
+
+footer:
+  since: 2026
+  icon:
+    name: fa fa-heart
+    animated: true
