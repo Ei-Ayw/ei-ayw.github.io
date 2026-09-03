@@ -1,6 +1,6 @@
 ---
 title: 博客搭建完成，第一篇笔记
-date: 2026-09-03 00:00:00
+date: 2026-09-03
 tags: [博客, Hexo]
 categories: [随笔]
 ---
@@ -26,7 +26,7 @@ npm run build
 
 ```markdown
 ---
-title: 1文章标题
+title: 文章标题
 date: 2026-09-03
 tags: [标签1, 标签2]
 categories: [分类名]

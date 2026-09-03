@@ -1,6 +1,6 @@
 ---
 title: 写笔记、发博客的最短路径
-date: 2026-09-03 00:00:00
+date: 2026-09-03
 tags: [博客, Hexo, Obsidian]
 categories: [教程]
 ---
