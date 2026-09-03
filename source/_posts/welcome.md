@@ -1,8 +1,11 @@
 ---
 title: 博客搭建完成，第一篇笔记
 date: 2026-09-03
-tags: [博客, Hexo]
-categories: [随笔]
+tags:
+  - 博客
+  - Hexo
+categories:
+  - 随笔
 ---
 
 这个博客基于 GitHub Pages + Hexo + NexT 搭建，现在正式开张。
