@@ -10,4 +10,4 @@ categories:
 
 笔记
 
-![](/images/pasted-image-20260903173358.png)
+![[pasted-image-20260903173358.png]]
